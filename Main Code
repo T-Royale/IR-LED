@@ -1,7 +1,8 @@
+// Check the connections file before starting//
 // The IRremote library has to be added to the IDE//
 // Not necessary if you use the web editor//
-#include <IRremote.hpp>
 
+#include <IRremote.hpp>
 
 bool mensaje = false;
 const int receptorPin = A3;
