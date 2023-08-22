@@ -1,4 +1,4 @@
 # IR-LED
-😮Aquí mi flipante proyecto de como encendí una luz LED con Arduino y un mando a distancia.😮
+😮Here is my amazing first project in witch I turn on a LED with an infrared remote😮
    
-Cállense aun no esta acabado.
+Not finished yet!
