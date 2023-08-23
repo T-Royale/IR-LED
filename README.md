@@ -3,4 +3,4 @@
    
 Not finished yet!
 
-Check the connections file before starting
+Check the connections.png file before starting
