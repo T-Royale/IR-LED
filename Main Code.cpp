@@ -8,8 +8,8 @@ bool mensaje = false;
 const int receptorPin = A3;
 IRrecv receptor(receptorPin);
 decode_results señal;
-int boton1 = //replace with the signal of a button of your controller//
-int boton2 = //replace with another button's signal//
+int boton1 = //replace with the signal of a button of your controller (ON)//
+int boton2 = //replace with another button's signal (OFF)//
 
 void setup() {
     Serial.begin(9600);
