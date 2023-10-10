@@ -13,6 +13,7 @@ void setup() {
 void loop() {
   if (receiver.decode()) {
     Serial.println(receiver.decodedIRData.decodedRawData, HEX);
+    delay(1000)
   //Restart the receiver. This is very important to capture the next signal
     receiver.resume();
   }
