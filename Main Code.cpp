@@ -2,37 +2,42 @@
 // The IRremote library has to be added to the IDE//
 // Not necessary if you use the web editor//
 
-#include <IRremote.hpp>
+#include <IRremote.h>
 
-bool mensaje = false;
-const int receptorPin = A3;
-IRrecv receptor(receptorPin);
-decode_results señal;
-int boton1 = //replace with the signal of a button of your controller (ON)//
-int boton2 = //replace with another button's signal (OFF)//
-
+bool message = false;
+#define ReceptorPin A3
+#define LedPin A1
+IRrecv receiver(ReceptorPin);
+#define Button1 0x //REPLACE WITH A BUTTON ID (ON)//
+#define Button2 0x //REPLACE WITH A BUTTON ID (OFF)//
 void setup() {
     Serial.begin(9600);
-    pinMode(A1, OUTPUT);
-    receptor.enableIRIn();
+    pinMode(LedPin, OUTPUT);
+    receiver.enableIRIn();
 }
 
 void loop() {
+  if (receiver.decode()) {
+    unsigned long decodedValue = receiver.decodedIRData.decodedRawData;
+    Serial.println(decodedValue, HEX);
+    switch (decodedValue) {
+      case Button1:
+        message = true;
+        break;
+      case Button2: 
+         message = false;
+        break;
+      default:
+        Serial.println("Button not recognised");
+        break;
+        }
+        receiver.resume();
+        Serial.println("--------------------------------");
+      }
 
-  if (receptor.decode(&señal)) {
-    if (señal == boton1) {
-      mensaje = true;
+    if (message == true) {
+        analogWrite(LedPin, 255);
+    } else if (message == false) {
+        analogWrite(LedPin, 0);
     }
-    else if (señal == boton2) {
-     mensaje = false;
-    }
-  }
-
-   if (mensaje == true){
-    analogWrite(A1, 126);
-  }
-  else if(mensaje == false) {
-    analogWrite(A1, 0);
-  }
-  receptor.resume();
 }
