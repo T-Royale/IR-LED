@@ -1,0 +1,8 @@
+First start connecting all the components as shown in the connections.png diagram.
+Then try running the IrRecorder.cpp file in your arduino and press the buttons in your remote you want to turn on the led
+Next open the serial monitor and copy both button's id numbers, it should be more like this one: 1FE50AF
+Then, open the Main Code.cpp file and paste them in lines 11-12 right after "0x" that is important because it tells the code that is a hexadecimal number.
+The cool thing about this code is that you can modify the led pin and replace it with a motor or almost everything, if you want to conect anything that uses more than 5V try using a 5Vrelay.
+You can also try changing the code itself to do more things than just turning on and off something
+When you finish, try uploading the code in your arduino.
+If anything goes wrong and you don't know what to do, feel free to contact me via discord.
