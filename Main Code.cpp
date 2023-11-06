@@ -19,7 +19,7 @@ void setup() {
 void loop() {
   if (receiver.decode()) {
     unsigned long decodedValue = receiver.decodedIRData.decodedRawData;
-    Serial.println(decodedValue, HEX);
+    String (decodedValue, HEX);
     switch (decodedValue) {
       case Button1:
         message = true;
